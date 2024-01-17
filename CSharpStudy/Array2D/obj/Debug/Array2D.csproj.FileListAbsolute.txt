@@ -1,0 +1,6 @@
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Array2D/bin/Debug/Array2D.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Array2D/bin/Debug/Array2D.pdb
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Array2D/obj/Debug/Array2D.csproj.AssemblyReference.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Array2D/obj/Debug/Array2D.csproj.CoreCompileInputs.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Array2D/obj/Debug/Array2D.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Array2D/obj/Debug/Array2D.pdb
