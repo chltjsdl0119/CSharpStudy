@@ -1,0 +1,6 @@
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Inheritance/bin/Debug/Inheritance.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Inheritance/bin/Debug/Inheritance.pdb
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Inheritance/obj/Debug/Inheritance.csproj.AssemblyReference.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Inheritance/obj/Debug/Inheritance.csproj.CoreCompileInputs.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Inheritance/obj/Debug/Inheritance.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Inheritance/obj/Debug/Inheritance.pdb
