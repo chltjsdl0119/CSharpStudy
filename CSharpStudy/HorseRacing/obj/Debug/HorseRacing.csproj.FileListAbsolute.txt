@@ -1,0 +1,6 @@
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/HorseRacing/bin/Debug/HorseRacing.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/HorseRacing/bin/Debug/HorseRacing.pdb
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/HorseRacing/obj/Debug/HorseRacing.csproj.AssemblyReference.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/HorseRacing/obj/Debug/HorseRacing.csproj.CoreCompileInputs.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/HorseRacing/obj/Debug/HorseRacing.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/HorseRacing/obj/Debug/HorseRacing.pdb

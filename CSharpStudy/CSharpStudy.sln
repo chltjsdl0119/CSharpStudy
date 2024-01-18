@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortAlgorithms", "SortAlgor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array2D", "Array2D\Array2D.csproj", "{37F5152E-2327-41A5-B810-E94E78A34243}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorseRacing", "HorseRacing\HorseRacing.csproj", "{6FB04D47-8083-4B04-BA50-BB6D6490E057}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{37F5152E-2327-41A5-B810-E94E78A34243}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37F5152E-2327-41A5-B810-E94E78A34243}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37F5152E-2327-41A5-B810-E94E78A34243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FB04D47-8083-4B04-BA50-BB6D6490E057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB04D47-8083-4B04-BA50-BB6D6490E057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB04D47-8083-4B04-BA50-BB6D6490E057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB04D47-8083-4B04-BA50-BB6D6490E057}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

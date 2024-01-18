@@ -87,7 +87,7 @@ namespace Array2D
         static void MoveRight()
         {
             // 맵의 경계를 벗어나는지 체크
-            if (x >= map.GetLength(1) - 1)
+            if (x >= map.GetLength(1) - 1) //map.GetLength(1) = 5;
             {
                 Console.WriteLine("맵의 경계를 벗어났다.");
                 return;
