@@ -3,7 +3,6 @@ using System;
 namespace Inheritance
 {
     public class Magicain : Character
-    
     {
         public override void UniqueSkill()
         {

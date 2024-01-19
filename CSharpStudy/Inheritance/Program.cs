@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Inheritance
 {
@@ -6,6 +7,20 @@ namespace Inheritance
     {
         public static void Main(string[] args)
         {
+            Knight knight = new Knight();
+            knight.hp = 10;
+
+            HpBar knightHpBar = new HpBar();
+            
+            knight.onHpChanged += knightHpBar.Refresh;
+            knight.onHpChanged += (value) => { Console.WriteLine(value); };
+            
+            while (true)
+            {
+                knight.hp -= 1;
+                Thread.Sleep(100);
+            }
+            
             // Creature creature1 = new Creature();
             // creature1.Breath();
 
@@ -33,5 +48,6 @@ namespace Inheritance
                 }
             }
         }
+
     }
 }
