@@ -1,3 +1,5 @@
+using System;
+
 namespace Inheritance
 {
     // 추상 멤버를 가지고 있다
@@ -35,8 +37,10 @@ namespace Inheritance
         public event HpChangedHandler onHpChanged; // event 한정자 : 대리자의 접근 제한을 위한 한정자, (+=/-=, 구독/구독취소)는 외부 클래스에서 접근 가능. = 은 접근 불가능
         // 구독에 대한 표현은 여러 가지다. : Resister, Observe, Listen, Subscribe = 다 같은 말
         // event를 호출한다는 표현 : Notify = 구독자들에게 알림 통지
-        
-        
+
+        public event Action<int, float> action; // 파라미터로 int, float 타입을 가지고 반환형이 없는 delegate
+        public event Func<int, float, bool> func; // 파라미터로 int, float 타입을 가지고 bool 반환형인 delegate
+        public Predicate<int> predicate; // 파라미터로 int 타입을 가지고 bool을 반환하는 delegate
         
         // public float GetHp()
         // {

@@ -49,5 +49,19 @@ namespace Inheritance
             }
         }
 
+        public void PrintSomething(int value)
+        {
+            Console.WriteLine(value);
+        }
+
+        public void PrintSomething<T>(T value)
+        {
+            Console.WriteLine(value);
+        }
+    }
+
+    public class Dummy<T> // 제네릭 클래스
+    {
+        public T value
     }
 }
