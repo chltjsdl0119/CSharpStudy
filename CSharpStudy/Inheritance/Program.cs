@@ -62,6 +62,7 @@ namespace Inheritance
 
     public class Dummy<T> // 제네릭 클래스
     {
-        public T value
+        public T value;
+        
     }
 }

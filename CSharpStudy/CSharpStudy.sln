@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorseRacing", "HorseRacing\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance", "Inheritance\Inheritance.csproj", "{F939C35E-FF54-4F78-9BE9-6434FAB11905}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxingUnboxing", "BoxingUnboxing\BoxingUnboxing.csproj", "{2B8E8AB0-DBB6-4CC4-9ED3-E4F06E6B9741}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{F939C35E-FF54-4F78-9BE9-6434FAB11905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F939C35E-FF54-4F78-9BE9-6434FAB11905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F939C35E-FF54-4F78-9BE9-6434FAB11905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B8E8AB0-DBB6-4CC4-9ED3-E4F06E6B9741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B8E8AB0-DBB6-4CC4-9ED3-E4F06E6B9741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B8E8AB0-DBB6-4CC4-9ED3-E4F06E6B9741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B8E8AB0-DBB6-4CC4-9ED3-E4F06E6B9741}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

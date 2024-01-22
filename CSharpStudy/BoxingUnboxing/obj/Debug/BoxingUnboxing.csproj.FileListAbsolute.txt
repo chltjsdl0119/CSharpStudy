@@ -1,0 +1,6 @@
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/BoxingUnboxing/bin/Debug/BoxingUnboxing.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/BoxingUnboxing/bin/Debug/BoxingUnboxing.pdb
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/BoxingUnboxing/obj/Debug/BoxingUnboxing.csproj.AssemblyReference.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/BoxingUnboxing/obj/Debug/BoxingUnboxing.csproj.CoreCompileInputs.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/BoxingUnboxing/obj/Debug/BoxingUnboxing.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/BoxingUnboxing/obj/Debug/BoxingUnboxing.pdb
