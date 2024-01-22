@@ -41,6 +41,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AVLTreeOfT.cs" />
+        <Compile Include="MyDynamicArray.cs" />
         <Compile Include="MyDynamicArrayOfT.cs" />
         <Compile Include="MyHashtableOfT.cs" />
         <Compile Include="MyLinkedListOfT.cs" />
