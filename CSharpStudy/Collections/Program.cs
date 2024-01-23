@@ -8,6 +8,8 @@ namespace Collections
     {
         static void Main(string[] args)
         {
+            #region MyDynamicArrayOfT
+            
             MyDynamicArray myDynamicArray = new MyDynamicArray();
             myDynamicArray.Add(3);
             myDynamicArray.Add(4);
@@ -20,59 +22,69 @@ namespace Collections
             {
                 Console.WriteLine(e1.Current);
             }
-            e1.Reset();
+
+            MyDynamicArray<int> intDArray = new MyDynamicArray<int>();
+            intDArray.Add(1);
+            intDArray.Add(2);
+            intDArray.Add(3);
+            intDArray.Add(4);
+
+            IEnumerator<int> intDArrayEnum = intDArray.GetEnumerator();
+            
+            while (intDArrayEnum.MoveNext())
+            {
+                Console.WriteLine(intDArrayEnum.Current);
+            }
+            intDArrayEnum.Reset();
+            intDArrayEnum.Dispose();
+
+            // IDisposable 객체의 Dispose() 함수의 호출을 보장하는 구문.
+            using (IEnumerator<int> intDArrayEnum2 = intDArray.GetEnumerator())
+            {
+                while (intDArrayEnum.MoveNext())
+                {
+                    Console.WriteLine(intDArrayEnum.Current);
+                }
+                intDArrayEnum.Reset();
+            }
+
+            // foreach 문
+            // IEnumerable을 순회하는 구문
+            foreach (int item in intDArray)
+            {
+                Console.WriteLine(item);
+            }
+            
+            #endregion
+            
+            #region HashSet
             
             HashSet<int> visited = new HashSet<int>();
             visited.Add(3); // 중복을 허용하지 않는 자료구조기에, 3이 이미 존재한다면 false를 반환.
+            
+            #endregion
 
-            // List<int> list = new List<int>();
-            // ArrayList al = new ArrayList();
-            // object num = 1;
-            // al.Add(num);
-            // al.Add("철수");
-            // al.Remove(num);
-            //
-            //
-            //
-            // MyDynamicArray<int> da1 = new MyDynamicArray<int>();
-            // da1.Add(4);
-            // da1.Add(5);
-            // da1.Add(7);
-            // da1.Add(9);
-            // da1.Add(4);
-            // if (da1.Remove(1))
-            //     Console.WriteLine( "Removed 1");
-            // Console.WriteLine($"index of 4 is {da1.IndexOf(4)}");
-            //
-            // if (da1.FindIndex(x => x > 3) >= 0)
-            //     Console.WriteLine("I found something bigger than 3 !");
-            //
-            // da1[0] = 5;
-            //
-            // MyDynamicArray<int> da2 =new MyDynamicArray<int>();
-            // foreach (var item in da1)
-            // {
-            //     Console.WriteLine(item);
-            // }
-            //
-            // using (IEnumerator<int> e = da1.GetEnumerator())
-            // {
-            //     while (e.MoveNext())
-            //     {
-            //         Console.WriteLine(e.Current);
-            //     }
-            //     e.Reset();
-            // }
-            //
-            //
-            //
-            // MyLinkedList<float> ll1 = new MyLinkedList<float>();
-            // ll1.AddFirst(5.0f);
-            // ll1.AddLast(3.0f);
-            // MyLinkedListNode<float> node = ll1.Find(x => x > 1.0f);
-            // ll1.AddBefore(node, 0.1f);
-            // if (ll1.RemoveLast(5.0f))
-            // Console.WriteLine("Removed last 5.0f");
+            #region List
+
+            // non-generic 동적 배열
+            ArrayList arrayList = new ArrayList();
+
+            arrayList.Add(3);
+            arrayList.Add("Carl");
+            arrayList.Contains(3); // false 출력. 위의 Add(3) 함수 호출로 할당된 객체와 다른 객체이기 때문이다.
+            
+            // generic 동적 배열
+            List<int> list = new List<int>();
+            
+            list.Add(1);
+            list.Remove(3);
+            list.IndexOf(3);
+            list.Contains(3);
+            list.Find(x => x > 1);
+            list.Insert(0, 2);
+
+            #endregion
+
         }
     }
 }
