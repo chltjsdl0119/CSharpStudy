@@ -6,6 +6,8 @@ namespace Collections
 {
     public class MyDynamicArray : IEnumerable
     {
+        private static int DEFAULT_SIZE = 1;
+        
         public int Length => _length; // 아래 get접근자와 동일한 기능을 한다.
         // public int Length
         // {
@@ -16,7 +18,7 @@ namespace Collections
         // }
         public int Capacity => _items.Length; // items의 전체 길이
         
-        private object[] _items;
+        private object[] _items = new object[DEFAULT_SIZE];
         private int _length; // _items의 아이템 개수
 
         
@@ -67,15 +69,15 @@ namespace Collections
         }
 
         public IEnumerator GetEnumerator() // MoveNext()를 써서 그 다음 yield로 넘길 수 있는 기능을 가진 객체를 반환하는 함수,
-        {                                  // 아래 struct Enum과 같은 기능.
-            yield return 1;
-            yield return 2;
-            yield return 3;
+        {                                  // 아래 struct Enum과 같은 기능. yield 키워드는 결국 switch case문의 한 케이스를 줄인 것.
+            // yield return 1;                // 원래라면 이 GetEnumerator() 메소드에는 아래 struct Enum을 써야하는데, yield 키워드로 줄인 것이다.
+            // yield return 2;
+            // yield return 3;
             
-            // for (int i = 0; i < _length; i++)
-            // {
-            //     yield return _items[i];
-            // }
+            for (int i = 0; i < _length; i++)
+            {
+                yield return _items[i];
+            }
         }
 
         // struct Enum : IEnumerable
@@ -84,6 +86,8 @@ namespace Collections
         //     
         //     private object _current;
         //     private int _step = -1;
+        //     private int _i = 0;
+        //     private MyDynamicArray _myDynamicArray;
         //
         //     public bool MoveNext()
         //     {
@@ -112,10 +116,25 @@ namespace Collections
         //                 _step++;
         //                 return true;
         //             }
+        //             case 3:
+        //             {
+        //                 _current = _myDynamicArray._items[_i++];
+        //                 if (_i >= _myDynamicArray._length)
+        //                 {
+        //                     _step++;
+        //                 }
+        //
+        //                 return true;
+        //             }
         //             default:
         //                 return false;
         //         }
         //     }
-        }
+        //     public void Reset()
+        //     {
+        //         _current = default(object);
+        //         _step = -1;
+        //     }
+        // }
     }
 }

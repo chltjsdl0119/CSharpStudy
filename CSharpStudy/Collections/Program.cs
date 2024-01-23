@@ -9,8 +9,18 @@ namespace Collections
         static void Main(string[] args)
         {
             MyDynamicArray myDynamicArray = new MyDynamicArray();
+            myDynamicArray.Add(3);
+            myDynamicArray.Add(4);
+            myDynamicArray.Add(5);
+            myDynamicArray.Add(6);
+            
             IEnumerator e1 = myDynamicArray.GetEnumerator();
-            Console.WriteLine();
+
+            while (e1.MoveNext())
+            {
+                Console.WriteLine(e1.Current);
+            }
+            e1.Reset();
             
             HashSet<int> visited = new HashSet<int>();
             visited.Add(3); // 중복을 허용하지 않는 자료구조기에, 3이 이미 존재한다면 false를 반환.

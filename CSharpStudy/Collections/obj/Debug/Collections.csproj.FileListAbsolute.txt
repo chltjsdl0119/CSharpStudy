@@ -1,0 +1,6 @@
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Collections/bin/Debug/Collections.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Collections/bin/Debug/Collections.pdb
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Collections/obj/Debug/Collections.csproj.AssemblyReference.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Collections/obj/Debug/Collections.csproj.CoreCompileInputs.cache
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Collections/obj/Debug/Collections.exe
+/Users/seungwon-choi/Github/CSharpStudy/CSharpStudy/Collections/obj/Debug/Collections.pdb
