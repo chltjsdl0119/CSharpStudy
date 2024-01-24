@@ -55,6 +55,7 @@ namespace Collections
         private int _count;
 
         // 삽입 알고리즘
+        // 일반적인 경우에는 O(1), 공간이 모자란 경우에는 O(N) 
         public void Add(T item)
         {
             if (_count == _items.Length)
@@ -66,8 +67,42 @@ namespace Collections
 
             _items[_count++] = item;
         }
+
+        // 탐색 알고리즘
+        // 최악의 경울 O(N)
+        public T Find(Predicate<T> match)
+        {
+            for (int i = 0; i < _count; i++)
+            {
+                if (match.Invoke(_items[i]))
+                {
+                    return _items[i];
+                }
+            }
+
+            return default(T);
+        }
         
         // 탐색 알고리즘
+        // 최악의 경우 O(N)
+        // 공간 복잡도도 최악의 경우 O(N)
+        public MyDynamicArray<T> FindAll(Predicate<T> match)
+        {
+            MyDynamicArray<T> result = new MyDynamicArray<T>();
+            
+            for (int i = 0; i < _count; i++)
+            {
+                if (match.Invoke(_items[i]))
+                {
+                    result.Add(_items[i]);
+                }
+            }
+
+            return result;
+        }
+        
+        // 탐색 알고리즘
+        // 최악의 경우 O(N)
         public int IndexOf(T item)
         {
             for (int i = 0; i < _count; i++)
