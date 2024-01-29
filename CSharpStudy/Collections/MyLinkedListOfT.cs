@@ -7,32 +7,29 @@ using System.Threading.Tasks;
 
 namespace Collections
 {
-    internal class MyLinkedListNode<T>
+    internal class Node<T>
     {
         public T Value;
-        public MyLinkedListNode<T> Prev;
-        public MyLinkedListNode<T> Next;
+        public Node<T> Next;
+        public Node<T> Prev;
 
-        public MyLinkedListNode(T value)
-        {
-            Value = value;
-        }
+        public Node(T value) => Value = value; // 생성자. 노드를 만들 때 value 세팅.
     }
-
     internal class MyLinkedList<T> : IEnumerable<T>
+        where T : IComparable<T>
     {
-        public MyLinkedListNode<T> First => _first;
-        public MyLinkedListNode<T> Last => _last;
-        private MyLinkedListNode<T> _first, _last, _tmp;
+        public Node<T> First => _first;
+        public Node<T> Last => _last;
 
+        private Node<T> _first, _last, _tmp;
+        
         public void AddFirst(T value)
         {
-            _tmp = new MyLinkedListNode<T>(value);
+            _tmp = new Node<T>(value);
 
-            // 하나이상의 노드가 존재한다면
             if (_first != null)
             {
-                _tmp.Next = _first;
+                _tmp.Next = _tmp;
                 _first.Prev = _tmp;
             }
             else
@@ -45,13 +42,12 @@ namespace Collections
 
         public void AddLast(T value)
         {
-            _tmp = new MyLinkedListNode<T>(value);
-
-            // 하나이상의 노드가 존재한다면
+            _tmp = new Node<T>(value);
+            
             if (_last != null)
             {
-                _tmp.Prev = _last;
                 _last.Next = _tmp;
+                _tmp.Prev = _last;
             }
             else
             {
@@ -61,9 +57,9 @@ namespace Collections
             _last = _tmp;
         }
 
-        public void AddBefore(MyLinkedListNode<T> node, T value)
+        public void AddBefore(Node<T> node, T value)
         {
-            _tmp = new MyLinkedListNode<T>(value);
+            _tmp = new Node<T>(value);
 
             if (node.Prev != null)
             {
@@ -79,10 +75,9 @@ namespace Collections
             _tmp.Next = node;
         }
 
-
-        public void AddAfter(MyLinkedListNode<T> node, T value)
+        public void AddAfter(Node<T> node, T value)
         {
-            _tmp = new MyLinkedListNode<T>(value);
+            _tmp = new Node<T>(value);
 
             if (node.Next != null)
             {
@@ -98,42 +93,73 @@ namespace Collections
             _tmp.Prev = node;
         }
 
-        public MyLinkedListNode<T> Find(Predicate<T> match)
+        public Node<T> Find(T target)
         {
             _tmp = _first;
             while (_tmp != null)
             {
-                if (match(_tmp.Value))
+                if (Comparer<T>.Default.Compare(_tmp.Value, target) == 0)
                     return _tmp;
-
+                
                 _tmp = _tmp.Next;
             }
+
             return null;
         }
-
-        public MyLinkedListNode<T> FindLast(Predicate<T> match)
+        
+        public Node<T> FindLast(T target)
         {
             _tmp = _last;
             while (_tmp != null)
             {
-                if (match(_tmp.Value))
+                if (Comparer<T>.Default.Compare(_tmp.Value, target) == 0)
                     return _tmp;
-
+                
                 _tmp = _tmp.Prev;
             }
+
             return null;
         }
 
-        public bool Remove(MyLinkedListNode<T> node)
+        public Node<T> Find(Predicate<T> match)
+        {
+            _tmp = _first;
+            while (_tmp != null)
+            {
+                if (match.Invoke(_tmp.Value))
+                    return _tmp;
+                
+                _tmp = _tmp.Next;
+            }
+
+            return null;
+        }
+        
+        // 마지막부터 시작해서 순회
+        public Node<T> FindLast(Predicate<T> match)
+        {
+            _tmp = _last;
+            while (_tmp != null)
+            {
+                if (match.Invoke(_tmp.Value))
+                    return _tmp;
+                
+                _tmp = _tmp.Prev;
+            }
+
+            return null;
+        }
+
+        public bool Remove(Node<T> node)
         {
             if (node == null)
                 return false;
-
+            
             if (node.Prev != null)
             {
                 node.Prev.Next = node.Next;
             }
-            else
+            else // 삭제하려는 노드가 first일 경우 (이전 노드가 없으므로.)
             {
                 _first = node.Next;
             }
@@ -142,7 +168,7 @@ namespace Collections
             {
                 node.Next.Prev = node.Prev;
             }
-            else
+            else // 삭제하려는 노드가 last일 경우 (다음 노드가 없으므로.)
             {
                 _last = node.Prev;
             }
@@ -152,12 +178,11 @@ namespace Collections
 
         public bool Remove(T value)
         {
-            return Remove(Find(x => Comparer<T>.Default.Compare(x, value) == 0));
+            return Remove(Find(value));
         }
-
-        public bool RemoveLast(T value)
+        public bool Removelast(T value)
         {
-            return Remove(FindLast(x => Comparer<T>.Default.Compare(x, value) == 0));
+            return Remove(FindLast(value));
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -169,29 +194,36 @@ namespace Collections
         {
             return new Enumerator(this);
         }
-
+        
         public struct Enumerator : IEnumerator<T>
         {
             public T Current => _currentNode.Value;
-
             object IEnumerator.Current => _currentNode.Value;
 
-            private MyLinkedList<T> _data;
-            private MyLinkedListNode<T> _currentNode;
-
-            public Enumerator(MyLinkedList<T> data)
+            private MyLinkedList<T> _linkedList;
+            private Node<T> _currentNode;
+            
+            public Enumerator(MyLinkedList<T> linkedList)
             {
-                _data = data;
+                _linkedList = linkedList;
                 _currentNode = null;
             }
 
             public void Dispose()
             {
+                // TODO 관리되는 리소스를 여기에 릴리스
             }
 
             public bool MoveNext()
             {
-                _currentNode = _currentNode == null ? _data.First : _currentNode.Next;
+                if (_currentNode == null)
+                {
+                    _currentNode = _linkedList._first;
+                }
+                else
+                {
+                    _currentNode = _currentNode.Next;
+                }
 
                 return _currentNode != null;
             }
@@ -200,6 +232,8 @@ namespace Collections
             {
                 _currentNode = null;
             }
+
+
         }
     }
 }

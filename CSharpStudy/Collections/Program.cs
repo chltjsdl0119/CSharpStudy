@@ -8,14 +8,14 @@ namespace Collections
     {
         static void Main(string[] args)
         {
-            #region MyDynamicArrayOfT
-            
+            #region MyDynamicArray
+
             MyDynamicArray myDynamicArray = new MyDynamicArray();
             myDynamicArray.Add(3);
             myDynamicArray.Add(4);
             myDynamicArray.Add(5);
             myDynamicArray.Add(6);
-            
+
             IEnumerator e1 = myDynamicArray.GetEnumerator();
 
             while (e1.MoveNext())
@@ -23,18 +23,25 @@ namespace Collections
                 Console.WriteLine(e1.Current);
             }
 
+            #endregion
+
+            #region MyDynamicArrayOfT
+
             MyDynamicArray<int> intDArray = new MyDynamicArray<int>();
             intDArray.Add(1);
             intDArray.Add(2);
             intDArray.Add(3);
             intDArray.Add(4);
 
+            Console.WriteLine(intDArray[0]); // 인덱서 프로퍼티를 구현해야 인덱스 접근이 가능하다.
+
             IEnumerator<int> intDArrayEnum = intDArray.GetEnumerator();
-            
+
             while (intDArrayEnum.MoveNext())
             {
                 Console.WriteLine(intDArrayEnum.Current);
             }
+
             intDArrayEnum.Reset();
             intDArrayEnum.Dispose();
 
@@ -45,6 +52,7 @@ namespace Collections
                 {
                     Console.WriteLine(intDArrayEnum.Current);
                 }
+
                 intDArrayEnum.Reset();
             }
 
@@ -54,17 +62,10 @@ namespace Collections
             {
                 Console.WriteLine(item);
             }
-            
-            #endregion
-            
-            #region HashSet
-            
-            HashSet<int> visited = new HashSet<int>();
-            visited.Add(3); // 중복을 허용하지 않는 자료구조기에, 3이 이미 존재한다면 false를 반환.
-            
+
             #endregion
 
-            #region List
+            #region ArrayList
 
             // non-generic 동적 배열
             ArrayList arrayList = new ArrayList();
@@ -72,10 +73,14 @@ namespace Collections
             arrayList.Add(3);
             arrayList.Add("Carl");
             arrayList.Contains(3); // false 출력. 위의 Add(3) 함수 호출로 할당된 객체와 다른 객체이기 때문이다.
-            
+
+            #endregion
+
+            #region List
+
             // generic 동적 배열
             List<int> list = new List<int>();
-            
+
             list.Add(1);
             list.Remove(3);
             list.IndexOf(3);
@@ -85,6 +90,14 @@ namespace Collections
 
             #endregion
 
+            #region HashSet
+
+            HashSet<int> visited = new HashSet<int>();
+            visited.Add(3); // 중복을 허용하지 않는 자료구조기에, 3이 이미 존재한다면 false를 반환.
+
+            #endregion
+
+            Dictionary<int, string> dictionary = new Dictionary<int, string>();
         }
     }
 }

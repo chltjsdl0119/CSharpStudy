@@ -51,6 +51,28 @@ namespace Collections
         public int Count => _count;
         public int Capacity => _items.Length;
 
+        public T this[int index]
+        {
+            get
+            {
+                if ((uint)index >= _count)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+
+                return _items[index];
+            }
+            set
+            {
+                if ((uint)index >= _count)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+
+                _items[index] = value;
+            }
+        }
+
         private T[] _items = new T[DEFAULT_SIZE];
         private int _count;
 
